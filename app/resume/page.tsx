@@ -1,22 +1,23 @@
+"use client";
+
+function Navbar({ active }: { active: string }) {
+  return (
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+      <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
+      <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
+      <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
+    </nav>
+  );
+}
+
 export default function Resume() {
   return (
-    <div className="min-h-screen bg-white px-8 py-6 flex flex-col justify-between" style={{ fontFamily: 'monospace' }}>
+    <div className="min-h-screen bg-white px-8 flex flex-col">
+      <Navbar active="resume" />
 
-      <div>
-        {/* Nav */}
-        <nav className="flex justify-between items-center mb-16">
-          <span className="font-medium tracking-widest uppercase">Anas Yusuf</span>
-          <div className="flex gap-10">
-            <a href="/" className="text-gray-800 font-medium hover:text-blue-600">Home</a>
-            <a href="/resume" className="text-blue-600 font-medium">Résumé</a>
-            <a href="/contact" className="text-gray-800 font-medium hover:text-blue-600">Contact</a>
-          </div>
-        </nav>
-
-        {/* Titel */}
+      <div className="flex-1 pt-24" style={{ fontFamily: 'monospace' }}>
         <h1 className="text-5xl font-bold mb-12">Résumé</h1>
 
-        {/* Skills */}
         <section className="mb-12">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Skills</h2>
           <hr className="mb-8" />
@@ -48,7 +49,6 @@ export default function Resume() {
           </div>
         </section>
 
-        {/* Experience */}
         <section>
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Professional Experience</h2>
           <hr className="mb-8" />
@@ -75,8 +75,7 @@ export default function Resume() {
         </section>
       </div>
 
-      {/* Footer */}
-      <footer className="flex justify-between items-center mt-16">
+      <footer className="flex justify-between items-center py-6">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"
@@ -93,7 +92,6 @@ export default function Resume() {
           </a>
         </div>
       </footer>
-
     </div>
   );
 }

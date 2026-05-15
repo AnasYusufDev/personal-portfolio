@@ -1,6 +1,16 @@
 "use client";
 import { useState } from "react";
 
+function Navbar({ active }: { active: string }) {
+  return (
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+      <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
+      <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
+      <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
+    </nav>
+  );
+}
+
 export default function Contact() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -26,19 +36,10 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-8 py-6 flex flex-col justify-between">
+    <div className="min-h-screen bg-white px-8 flex flex-col">
+      <Navbar active="contact" />
 
-      <div>
-        {/* Nav */}
-        <nav className="flex justify-between items-center mb-16">
-          <span className="font-medium tracking-widest uppercase">Anas Yusuf</span>
-          <div className="flex gap-10">
-            <a href="/" className="text-gray-800 font-medium hover:text-blue-600">Home</a>
-            <a href="/resume" className="text-gray-800 font-medium hover:text-blue-600">Résumé</a>
-            <a href="/contact" className="text-blue-600 font-medium">Contact</a>
-          </div>
-        </nav>
-
+      <div className="flex-1 pt-24">
         <h1 className="text-5xl font-bold mb-12">Contact Me</h1>
 
         <div className="flex flex-col gap-4 max-w-full">
@@ -80,8 +81,7 @@ export default function Contact() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer className="flex justify-between items-center mt-16">
+      <footer className="flex justify-between items-center py-6">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"
@@ -98,7 +98,6 @@ export default function Contact() {
           </a>
         </div>
       </footer>
-
     </div>
   );
 }

@@ -1,6 +1,16 @@
 "use client";
 import { useEffect, useState } from "react";
 
+function Navbar({ active }: { active: string }) {
+  return (
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
+      <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
+      <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
+      <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
+    </nav>
+  );
+}
+
 export default function Home() {
   const [text, setText] = useState("");
   const fullText = "Full Stack Software Developer based in Aarhus, Denmark";
@@ -16,19 +26,15 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col justify-between bg-white px-8 py-6">
-      <nav className="flex justify-end gap-10">
-        <a href="/" className="text-blue-600 font-medium">Home</a>
-        <a href="/resume" className="text-gray-800 font-medium hover:text-blue-600">Résumé</a>
-        <a href="/contact" className="text-gray-800 font-medium hover:text-blue-600">Contact</a>
-      </nav>
+    <div className="min-h-screen flex flex-col bg-white px-8">
+      <Navbar active="home" />
 
-      <main className="flex flex-col items-center justify-center text-center">
+      <main className="flex-1 flex flex-col items-center justify-center text-center">
         <h1 className="text-8xl font-bold tracking-widest uppercase">I'M ANAS YUSUF</h1>
         <p className="mt-6 text-lg tracking-wide text-gray-600">{text}</p>
       </main>
 
-      <footer className="flex justify-between items-center">
+      <footer className="flex justify-between items-center py-6">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
         <div className="flex gap-3 items-center">
           <a href="https://linkedin.com/in/anas-yusuf-dev" target="_blank" rel="noopener noreferrer"
