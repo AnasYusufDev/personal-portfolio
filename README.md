@@ -14,4 +14,4 @@ Personal portfolio website built to showcase my projects and skills as a full-st
 ## 📬 Contact
 - LinkedIn: linkedin.com/in/anas-yusuf-dev
 - GitHub: github.com/AnasYusufDev
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
