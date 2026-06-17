@@ -3,7 +3,7 @@ import { useState } from "react";
 
 function Navbar({ active }: { active: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50 border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
       <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
       <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
       <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
@@ -35,7 +35,7 @@ export default function Contact() {
   };
 
   return (
-    <div className="min-h-screen bg-white px-8 flex flex-col overflow-y-scroll" style={{ scrollbarWidth: 'thin' }}>
+    <div className="min-h-screen bg-white px-8 flex flex-col overflow-y-scroll show-scrollbar">
       <Navbar active="contact" />
       <div className="flex-1 pt-24 pb-24">
         <h1 className="text-5xl font-bold mb-12">Contact Me</h1>

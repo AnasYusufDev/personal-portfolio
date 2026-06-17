@@ -2,7 +2,7 @@
 
 function Navbar({ active }: { active: string }) {
   return (
-    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50 border-b border-gray-100">
+    <nav className="fixed top-0 left-0 right-0 flex justify-end gap-10 px-8 py-6 bg-white z-50">
       <a href="/" className={`font-medium ${active === "home" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Home</a>
       <a href="/resume" className={`font-medium ${active === "resume" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Résumé</a>
       <a href="/contact" className={`font-medium ${active === "contact" ? "text-blue-600" : "text-gray-800 hover:text-blue-600"}`}>Contact</a>
@@ -16,6 +16,8 @@ export default function Resume() {
       <Navbar active="resume" />
       <div className="flex-1 pt-24 pb-24" style={{ fontFamily: 'monospace' }}>
         <h1 className="text-5xl font-bold mb-12">Résumé</h1>
+
+        {/* Skills */}
         <section className="mb-12">
           <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Skills</h2>
           <hr className="mb-8" />
@@ -23,7 +25,7 @@ export default function Resume() {
             <div>
               <p className="font-bold mb-4">Backend:</p>
               <div className="flex flex-wrap gap-2">
-                {["Java", "Spring Boot", "Node.js", "PostgreSQL", "REST API"].map(skill => (
+                {["Java", "Spring Boot", "MySQL", "REST API", "JWT", "Google OAuth"].map(skill => (
                   <span key={skill} className="border border-gray-200 px-3 py-1 rounded text-sm">{skill}</span>
                 ))}
               </div>
@@ -31,7 +33,7 @@ export default function Resume() {
             <div>
               <p className="font-bold mb-4">Frontend:</p>
               <div className="flex flex-wrap gap-2">
-                {["JavaScript", "TypeScript", "React", "Next.js", "HTML", "CSS"].map(skill => (
+                {["React Native", "TypeScript", "JavaScript", "React", "Expo", "Next.js"].map(skill => (
                   <span key={skill} className="border border-gray-200 px-3 py-1 rounded text-sm">{skill}</span>
                 ))}
               </div>
@@ -39,26 +41,40 @@ export default function Resume() {
             <div>
               <p className="font-bold mb-4">Other:</p>
               <div className="flex flex-wrap gap-2">
-                {["Git", "Docker", "Unit Testing", "CI/CD", "Domain Driven Design"].map(skill => (
+                {["Git", "Docker", "Postman", "GitHub"].map(skill => (
                   <span key={skill} className="border border-gray-200 px-3 py-1 rounded text-sm">{skill}</span>
                 ))}
               </div>
             </div>
           </div>
         </section>
+
+        {/* Projects */}
         <section>
-          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">💼 Professional Experience</h2>
+          <h2 className="text-xl font-semibold mb-4 flex items-center gap-2">🚀 Projects</h2>
           <hr className="mb-8" />
-          <div className="mb-8">
-            <div className="flex justify-between items-start mb-2">
-              <h3 className="font-bold">Delivery Platform</h3>
-              <span className="text-gray-500 text-sm">2024 - Present</span>
+          <div className="border border-gray-200 rounded-xl p-6 hover:border-gray-400 transition-all">
+            <div className="flex justify-between items-start mb-4">
+              <div>
+                <h3 className="font-bold text-lg">AllEats — Food Delivery App</h3>
+                <p className="text-gray-500 text-sm mt-1">2025 - Present</p>
+              </div>
+              <div className="flex gap-3">
+                <a href="https://github.com/AnasYusufDev/delivery-platform" target="_blank" rel="noopener noreferrer" className="border border-gray-200 px-3 py-1 rounded text-sm hover:bg-gray-50 transition-colors">GitHub</a>
+                <a href="https://youtube.com/shorts/c4fS06Ffne0?feature=share" target="_blank" rel="noopener noreferrer" className="border border-gray-200 px-3 py-1 rounded text-sm hover:bg-gray-50 transition-colors">Demo</a>
+              </div>
             </div>
-            <p className="text-gray-600 text-sm leading-relaxed">
-              Designed and developed a full-stack delivery platform end-to-end, implementing customer ordering, a dedicated driver interface, and secure user authentication — following best practices in software architecture and deploying the application to a live production environment.
+            <p className="text-gray-600 text-sm leading-relaxed mb-4">
+              Built a full-stack food delivery app from scratch. Users can browse restaurants, view menus, add items to cart and place orders directly from their phone. Features Google OAuth login, JWT authentication, and a REST API backend.
             </p>
+            <div className="flex flex-wrap gap-2">
+              {["React Native", "Expo", "Spring Boot", "Java", "MySQL", "Google OAuth", "JWT"].map(tag => (
+                <span key={tag} className="bg-gray-100 text-gray-700 px-3 py-1 rounded-full text-xs">{tag}</span>
+              ))}
+            </div>
           </div>
         </section>
+
       </div>
       <footer className="fixed bottom-0 left-0 right-0 bg-white px-8 flex justify-between items-center py-6 border-t border-gray-100 z-50">
         <p className="text-sm text-gray-500">© 2026 Anas Yusuf. All rights reserved.</p>
